@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <!--  Bootstrap CDN Link -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <h2 class="d-flex text-align-center justify-content-center pb-3">Survey Form</h2>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstName" class="font-weight-bold">First Name<sup>*</sup></label>
+          <input type="text" class="form-control" id="firstName" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName" class="font-weight-bold">Last Name </label>
+          <input type="text" class="form-control" id="lastName" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="font-weight-bold ">Email</label> <sup>*</sup>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="rating" class="font-weight-bold">Rate your experience:</label>
+        <div class="rating">
+          <span class="star" data-rating="1"><i class="far fa-star"></i></span>
+          <span class="star" data-rating="2"><i class="far fa-star"></i></span>
+          <span class="star" data-rating="3"><i class="far fa-star"></i></span>
+          <span class="star" data-rating="4"><i class="far fa-star"></i></span>
+          <span class="star" data-rating="5"><i class="far fa-star"></i></span><br>
+          <label>Overall, how would you rate your experience with us?</label>
+        </div>
+        <input type="hidden" name="rating" id="rating" value="0">
+      </div>
+
+      <label class="font-weight-bold">How Satisfied are you with <sup>*</sup>:</label>
+      <div class="form-group">
+
+        <!-- Table 1 -->
+        <table border="1" class="table table-striped table-bordered">
+          <tr>
+            <th></th>
+            <th>Very Unsatisfied</th>
+            <th>Unsatisfied</th>
+            <th>Neutral</th>
+            <th>Satisfied</th>
+            <th>Very Satisfied</th>
+          </tr>
+          <tr>
+            <td>Purchase</td>
+            <td><input type="radio" name="purchase" value="Very Unsatisfied"></td>
+            <td><input type="radio" name="purchase" value="Unsatisfied"></td>
+            <td><input type="radio" name="purchase" value="Neutral"></td>
+            <td><input type="radio" name="purchase" value="Satisfied"></td>
+            <td><input type="radio" name="purchase" value="Very Satisfied"></td>
+          </tr>
+          <tr>
+            <td>Service</td>
+            <td><input type="radio" name="service" value="Very Unsatisfied"></td>
+            <td><input type="radio" name="service" value="Unsatisfied"></td>
+            <td><input type="radio" name="service" value="Neutral"></td>
+            <td><input type="radio" name="service" value="Satisfied"></td>
+            <td><input type="radio" name="service" value="Very Satisfied"></td>
+          </tr>
+          <tr>
+            <td>Company</td>
+            <td><input type="radio" name="company" value="Very Unsatisfied"></td>
+            <td><input type="radio" name="company" value="Unsatisfied"></td>
+            <td><input type="radio" name="company" value="Neutral"></td>
+            <td><input type="radio" name="company" value="Satisfied"></td>
+            <td><input type="radio" name="company" value="Very Satisfied"></td>
+          </tr>
+        </table>
+
+         <!-- Table 2 -->
+        <label class="font-weight-bold pt-3">How likely are you to <sup>*</sup>:</label>
+        <table border="1" class="table table-striped table-bordered">
+          <tr>
+            <th></th>
+            <th>Very Unlikely</th>
+            <th>Unlikely</th>
+            <th>Neutral</th>
+            <th>likely</th>
+            <th>Very likely</th>
+          </tr>
+          <tr>
+            <td>Buy From us again</td>
+            <td><input type="radio" name="Buy" value="Very Unlikely"></td>
+            <td><input type="radio" name="Buy" value="Unlikely"></td>
+            <td><input type="radio" name="Buy" value="Neutral"></td>
+            <td><input type="radio" name="Buy" value="likely"></td>
+            <td><input type="radio" name="Buy" value="Very likely"></td>
+          </tr>
+          <tr>
+            <td>Service</td>
+            <td><input type="radio" name="service" value="Very Unlikely"></td>
+            <td><input type="radio" name="service" value="Unlikely"></td>
+            <td><input type="radio" name="service" value="Neutral"></td>
+            <td><input type="radio" name="service" value="likely"></td>
+            <td><input type="radio" name="service" value="Very likely"></td>
+          </tr>
+          <tr>
+            <td>Company</td>
+            <td><input type="radio" name="company" value="Very Unlikely"></td>
+            <td><input type="radio" name="company" value="Unlikely"></td>
+            <td><input type="radio" name="company" value="Neutral"></td>
+            <td><input type="radio" name="company" value="likely"></td>
+            <td><input type="radio" name="company" value="Very likely"></td>
+          </tr>
+        </table>
+
+        <section class="mt-4 font-weight-bold">
+          <label>Additional Comments or Suggestions</label>
+          <textarea class="form-control" rows="3" cols="5"></textarea>
+        </section>
+
+      </div>
+      <button type="submit" class="btn submit mb-3 ">Submit</button>
+    </form>
+
+  </div>
+
+  <script>
+    // jQuery code for interactive star rating
+    $(document).ready(function () {
+      $(".star").click(function () {
+        var rating = $(this).data("rating");
+        $("#rating").val(rating);
+        $(".star").removeClass("selected");
+        $(this).addClass("selected");
+        $(this).prevAll(".star").addClass("selected");
+      });
+    });
+  </script>
+
+</body>
+
+</html>
